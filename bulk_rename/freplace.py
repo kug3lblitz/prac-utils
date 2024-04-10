@@ -3,8 +3,8 @@ import re
 import argparse
 
 # example usage
-# python rename.py -d inetpub/ www.site1.com www.site2.com .config
-# python rename.py -d inetpub/ www.site1.com www.site2.com -n Web.config
+# python freplace.py -d inetpub/ www.site1.com www.site2.com .config
+# python freplace.py -d inetpub/ www.site1.com www.site2.com -n Web.config
 
 def replace_text_in_files(target, old_text, new_text, file_extension=None, is_file=False, specific_filename=None):
     encodings = ['utf-8', 'latin1', 'cp1252']  # Add more if needed
@@ -28,7 +28,7 @@ def replace_text_in_files(target, old_text, new_text, file_extension=None, is_fi
             raise UnicodeDecodeError('None of the specified encodings could decode the file')
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Replace text in files or directories. ex: python rename.py -d directory old_text new_text .php | python rename.py -f file.txt old_text new_text')
+    parser = argparse.ArgumentParser(description='Replace text in files or directories. ex: python freplace.py -d directory old_text new_text .php | python rename.py -f file.txt old_text new_text')
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('-d', '--directory', help='The directory to search')
     group.add_argument('-f', '--file', help='The file to search')
